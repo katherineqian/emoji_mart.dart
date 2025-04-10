@@ -39,8 +39,10 @@ class EmojiPicker extends StatefulWidget {
     this.emojiVersion = '15',
     this.customCategory,
     required this.onEmojiSelected,
+    this.emojiData,
     this.columns = 9,
     this.rows = 4,
+    this.theme,
   });
 
   static double computeMaxWidth({
@@ -70,11 +72,13 @@ class EmojiPicker extends StatefulWidget {
   /// You can use [EmojiPreset] to get the available sets.
   final String set;
   final String emojiVersion;
+  final EmojiMartData? emojiData;
   final EmojiSelectedCallback onEmojiSelected;
   final CustomCategory? customCategory;
 
   final int columns;
   final int rows;
+  final EmojiPickerTheme? theme;
 
   @override
   State<EmojiPicker> createState() => _EmojiPickerState();
@@ -90,6 +94,9 @@ class _EmojiPickerState extends State<EmojiPicker> {
   @override
   void didUpdateWidget(covariant EmojiPicker oldWidget) {
     super.didUpdateWidget(oldWidget);
+    if (widget.emojiData != null) {
+      return;
+    }
     if (oldWidget.set != widget.set ||
         oldWidget.emojiVersion != widget.emojiVersion) {
       dataFuture = fetchData(widget.set, widget.emojiVersion);
@@ -101,22 +108,20 @@ class _EmojiPickerState extends State<EmojiPicker> {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
 
-    final emojiPickerTheme = theme.extension<EmojiPickerTheme>() ??
+    final emojiPickerTheme = widget.theme ??
+        theme.extension<EmojiPickerTheme>() ??
         EmojiPickerTheme.defaultTheme(context);
+
     final EmojiPickerTheme(:spacing, emojiSize: size) = emojiPickerTheme;
 
     final emojiMartInheritedData = EmojiMartInheritedWidget.maybeOf(context);
-    if (emojiMartInheritedData != null) {
+    if (emojiMartInheritedData != null && widget.emojiData == null) {
       dataFuture = Future.value(emojiMartInheritedData);
     }
 
-    Widget emojiDisplayer = FutureBuilder(
-      future: dataFuture,
-      builder: (context, snapshot) {
-        if (snapshot.hasData &&
-            snapshot.connectionState == ConnectionState.done) {
-          Widget emoji = EmojiMartInheritedWidget(
-            data: snapshot.data!,
+    Widget emojiDisplayer = widget.emojiData != null
+        ? EmojiMartInheritedWidget(
+            data: widget.emojiData!,
             child: ListenableBuilder(
               listenable: skin,
               builder: (context, child) => EmojiPickerListView(
@@ -130,15 +135,36 @@ class _EmojiPickerState extends State<EmojiPicker> {
                 columns: widget.columns,
                 rows: widget.rows,
               ),
-            ),
-          );
+            ))
+        : FutureBuilder(
+            future: dataFuture,
+            builder: (context, snapshot) {
+              if (snapshot.hasData &&
+                  snapshot.connectionState == ConnectionState.done) {
+                Widget emoji = EmojiMartInheritedWidget(
+                  data: snapshot.data!,
+                  child: ListenableBuilder(
+                    listenable: skin,
+                    builder: (context, child) => EmojiPickerListView(
+                      searchTextController: searchTextController,
+                      customCategory: widget.customCategory,
+                      onEmojiSelected: widget.onEmojiSelected,
 
-          return emoji;
-        }
-        if (snapshot.hasError) return SizedBox();
-        return SizedBox();
-      },
-    );
+                      ///
+                      set: widget.set,
+                      skin: skin.value,
+                      columns: widget.columns,
+                      rows: widget.rows,
+                    ),
+                  ),
+                );
+
+                return emoji;
+              }
+              if (snapshot.hasError) return SizedBox();
+              return SizedBox();
+            },
+          );
 
     emojiDisplayer = ConstrainedBox(
       constraints: BoxConstraints(
