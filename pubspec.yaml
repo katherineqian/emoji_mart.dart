@@ -1,4 +1,4 @@
-name: emoji_mart
+name: emoji_mart_flutter
 publish_to: none
 environment:
   sdk: ^3.6.0
