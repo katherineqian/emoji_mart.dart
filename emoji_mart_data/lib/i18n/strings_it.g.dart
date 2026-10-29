@@ -3,6 +3,7 @@
 ///
 // coverage:ignore-file
 // ignore_for_file: type=lint, unused_import
+// dart format off
 
 import 'package:flutter/widgets.dart';
 import 'package:intl/intl.dart';
@@ -10,29 +11,32 @@ import 'package:slang/generated.dart';
 import 'strings.g.dart';
 
 // Path: <root>
-class EmojiMartTranslationsIt extends EmojiMartTranslations {
+class EmojiMartTranslationsIt extends EmojiMartTranslations with BaseTranslations<EmojiMartLocale, EmojiMartTranslations> {
 	/// You can call this constructor and build your own translation instance of this locale.
 	/// Constructing via the enum [EmojiMartLocale.build] is preferred.
-	EmojiMartTranslationsIt({Map<String, Node>? overrides, PluralResolver? cardinalResolver, PluralResolver? ordinalResolver})
+	EmojiMartTranslationsIt({Map<String, Node>? overrides, PluralResolver? cardinalResolver, PluralResolver? ordinalResolver, TranslationMetadata<EmojiMartLocale, EmojiMartTranslations>? meta})
 		: assert(overrides == null, 'Set "translation_overrides: true" in order to enable this feature.'),
-		  $meta = TranslationMetadata(
+		  _meta = meta ?? TranslationMetadata(
 		    locale: EmojiMartLocale.it,
 		    overrides: overrides ?? {},
 		    cardinalResolver: cardinalResolver,
 		    ordinalResolver: ordinalResolver,
 		  ),
 		  super(cardinalResolver: cardinalResolver, ordinalResolver: ordinalResolver) {
-		super.$meta.setFlatMapFunction($meta.getTranslation); // copy base translations to super.$meta
-		$meta.setFlatMapFunction(_flatMapFunction);
+		_meta.setFlatMapFunction(_flatMapFunction);
 	}
 
 	/// Metadata for the translations of <it>.
-	@override final TranslationMetadata<EmojiMartLocale, EmojiMartTranslations> $meta;
+	final TranslationMetadata<EmojiMartLocale, EmojiMartTranslations> _meta;
+	@override TranslationMetadata<EmojiMartLocale, EmojiMartTranslations> get $meta => _meta;
 
 	/// Access flat map
-	@override dynamic operator[](String key) => $meta.getTranslation(key) ?? super.$meta.getTranslation(key);
+	@override dynamic operator[](String key) => _meta.getTranslation(key) ?? super[key];
 
 	late final EmojiMartTranslationsIt _root = this; // ignore: unused_field
+
+	@override 
+	EmojiMartTranslationsIt $copyWith({TranslationMetadata<EmojiMartLocale, EmojiMartTranslations>? meta}) => EmojiMartTranslationsIt(meta: meta ?? this.$meta);
 
 	// Translations
 	@override String get search => 'Cerca';
@@ -40,13 +44,13 @@ class EmojiMartTranslationsIt extends EmojiMartTranslations {
 	@override String get search_no_results_2 => 'Quell\'emoji non è stata trovata';
 	@override String get pick => 'Scegli un\'emoji…';
 	@override String get add_custom => 'Aggiungi emoji personalizzata';
-	@override late final _EmojiMartTranslationsCategoriesIt categories = _EmojiMartTranslationsCategoriesIt._(_root);
+	@override late final _EmojiMartTranslations$categories$it categories = _EmojiMartTranslations$categories$it._(_root);
 	@override String get skin_tone => 'Tonalità della pelle';
 }
 
 // Path: categories
-class _EmojiMartTranslationsCategoriesIt extends EmojiMartTranslationsCategoriesEn {
-	_EmojiMartTranslationsCategoriesIt._(EmojiMartTranslationsIt root) : this._root = root, super.internal(root);
+class _EmojiMartTranslations$categories$it extends EmojiMartTranslations$categories$en {
+	_EmojiMartTranslations$categories$it._(EmojiMartTranslationsIt root) : this._root = root, super.internal(root);
 
 	final EmojiMartTranslationsIt _root; // ignore: unused_field
 
@@ -64,30 +68,32 @@ class _EmojiMartTranslationsCategoriesIt extends EmojiMartTranslationsCategories
 	@override String get symbols => 'Simboli';
 }
 
-/// Flat map(s) containing all translations.
+/// The flat map containing all translations for locale <it>.
 /// Only for edge cases! For simple maps, use the map function of this library.
+///
+/// The Dart AOT compiler has issues with very large switch statements,
+/// so the map is split into smaller functions (512 entries each).
 extension on EmojiMartTranslationsIt {
 	dynamic _flatMapFunction(String path) {
-		switch (path) {
-			case 'search': return 'Cerca';
-			case 'search_no_results_1': return 'Oh no!';
-			case 'search_no_results_2': return 'Quell\'emoji non è stata trovata';
-			case 'pick': return 'Scegli un\'emoji…';
-			case 'add_custom': return 'Aggiungi emoji personalizzata';
-			case 'categories.activity': return 'Attività';
-			case 'categories.custom': return 'Personalizzato';
-			case 'categories.flags': return 'Bandierine';
-			case 'categories.foods': return 'Cibo e bevande';
-			case 'categories.frequent': return 'Usato di frequente';
-			case 'categories.nature': return 'Animali e natura';
-			case 'categories.objects': return 'Oggetti';
-			case 'categories.people': return 'Faccine e persone';
-			case 'categories.places': return 'Viaggi e luoghi';
-			case 'categories.search': return 'Risultati della ricerca';
-			case 'categories.symbols': return 'Simboli';
-			case 'skin_tone': return 'Tonalità della pelle';
-			default: return null;
-		}
+		return switch (path) {
+			'search' => 'Cerca',
+			'search_no_results_1' => 'Oh no!',
+			'search_no_results_2' => 'Quell\'emoji non è stata trovata',
+			'pick' => 'Scegli un\'emoji…',
+			'add_custom' => 'Aggiungi emoji personalizzata',
+			'categories.activity' => 'Attività',
+			'categories.custom' => 'Personalizzato',
+			'categories.flags' => 'Bandierine',
+			'categories.foods' => 'Cibo e bevande',
+			'categories.frequent' => 'Usato di frequente',
+			'categories.nature' => 'Animali e natura',
+			'categories.objects' => 'Oggetti',
+			'categories.people' => 'Faccine e persone',
+			'categories.places' => 'Viaggi e luoghi',
+			'categories.search' => 'Risultati della ricerca',
+			'categories.symbols' => 'Simboli',
+			'skin_tone' => 'Tonalità della pelle',
+			_ => null,
+		};
 	}
 }
-

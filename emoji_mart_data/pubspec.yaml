@@ -14,8 +14,8 @@ dependencies:
   flutter:
     sdk: flutter
   intl: ^0.20.2
-  slang: ^4.4.1
-  slang_flutter: ^4.4.0
+  slang: ^4.19.2
+  slang_flutter: ^4.19.0
   inflection3: ^0.5.3+2
 
 dev_dependencies:
@@ -32,77 +32,77 @@ dev_dependencies:
 # The following section is specific to Flutter packages.
 # flutter:
 
-  # To add assets to your package, add an assets section, like this:
-  # assets:
-    # - sets/1/all.json
-    # - sets/1/apple.json
-    # - sets/1/facebook.json
-    # - sets/1/google.json
-    # - sets/1/native.json
-    # - sets/1/twitter.json
-    # - sets/2/all.json
-    # - sets/2/apple.json
-    # - sets/2/facebook.json
-    # - sets/2/google.json
-    # - sets/2/native.json
-    # - sets/2/twitter.json
-    # - sets/3/all.json
-    # - sets/3/apple.json
-    # - sets/3/facebook.json
-    # - sets/3/google.json
-    # - sets/3/native.json
-    # - sets/3/twitter.json
-    # - sets/4/all.json
-    # - sets/4/apple.json
-    # - sets/4/facebook.json
-    # - sets/4/google.json
-    # - sets/4/native.json
-    # - sets/4/twitter.json
-    # - sets/5/all.json
-    # - sets/5/apple.json
-    # - sets/5/facebook.json
-    # - sets/5/google.json
-    # - sets/5/native.json
-    # - sets/5/twitter.json
-    # - sets/11/all.json
-    # - sets/11/apple.json
-    # - sets/11/facebook.json
-    # - sets/11/google.json
-    # - sets/11/native.json
-    # - sets/11/twitter.json
-    # - sets/12/all.json
-    # - sets/12/apple.json
-    # - sets/12/facebook.json
-    # - sets/12/google.json
-    # - sets/12/native.json
-    # - sets/12/twitter.json
-    # - sets/12.1/all.json
-    # - sets/12.1/apple.json
-    # - sets/12.1/facebook.json
-    # - sets/12.1/google.json
-    # - sets/12.1/native.json
-    # - sets/12.1/twitter.json
-    # - sets/13/all.json
-    # - sets/13/apple.json
-    # - sets/13/facebook.json
-    # - sets/13/google.json
-    # - sets/13/native.json
-    # - sets/13/twitter.json
-    # - sets/13.1/all.json
-    # - sets/13.1/apple.json
-    # - sets/13.1/facebook.json
-    # - sets/13.1/google.json
-    # - sets/13.1/native.json
-    # - sets/13.1/twitter.json
-    # - sets/14/all.json
-    # - sets/14/apple.json
-    # - sets/14/facebook.json
-    # - sets/14/google.json
-    # - sets/14/native.json
-    # - sets/14/twitter.json
-    # - sets/15/all.json
-    # - sets/15/apple.json
-    # - sets/15/facebook.json
-    # - sets/15/google.json
-    # - sets/15/native.json
-    # - sets/15/twitter.json
+# To add assets to your package, add an assets section, like this:
+# assets:
+# - sets/1/all.json
+# - sets/1/apple.json
+# - sets/1/facebook.json
+# - sets/1/google.json
+# - sets/1/native.json
+# - sets/1/twitter.json
+# - sets/2/all.json
+# - sets/2/apple.json
+# - sets/2/facebook.json
+# - sets/2/google.json
+# - sets/2/native.json
+# - sets/2/twitter.json
+# - sets/3/all.json
+# - sets/3/apple.json
+# - sets/3/facebook.json
+# - sets/3/google.json
+# - sets/3/native.json
+# - sets/3/twitter.json
+# - sets/4/all.json
+# - sets/4/apple.json
+# - sets/4/facebook.json
+# - sets/4/google.json
+# - sets/4/native.json
+# - sets/4/twitter.json
+# - sets/5/all.json
+# - sets/5/apple.json
+# - sets/5/facebook.json
+# - sets/5/google.json
+# - sets/5/native.json
+# - sets/5/twitter.json
+# - sets/11/all.json
+# - sets/11/apple.json
+# - sets/11/facebook.json
+# - sets/11/google.json
+# - sets/11/native.json
+# - sets/11/twitter.json
+# - sets/12/all.json
+# - sets/12/apple.json
+# - sets/12/facebook.json
+# - sets/12/google.json
+# - sets/12/native.json
+# - sets/12/twitter.json
+# - sets/12.1/all.json
+# - sets/12.1/apple.json
+# - sets/12.1/facebook.json
+# - sets/12.1/google.json
+# - sets/12.1/native.json
+# - sets/12.1/twitter.json
+# - sets/13/all.json
+# - sets/13/apple.json
+# - sets/13/facebook.json
+# - sets/13/google.json
+# - sets/13/native.json
+# - sets/13/twitter.json
+# - sets/13.1/all.json
+# - sets/13.1/apple.json
+# - sets/13.1/facebook.json
+# - sets/13.1/google.json
+# - sets/13.1/native.json
+# - sets/13.1/twitter.json
+# - sets/14/all.json
+# - sets/14/apple.json
+# - sets/14/facebook.json
+# - sets/14/google.json
+# - sets/14/native.json
+# - sets/14/twitter.json
+# - sets/15/all.json
+# - sets/15/apple.json
+# - sets/15/facebook.json
+# - sets/15/google.json
+# - sets/15/native.json
+# - sets/15/twitter.json

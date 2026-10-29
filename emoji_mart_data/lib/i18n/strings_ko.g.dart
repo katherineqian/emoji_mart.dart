@@ -3,6 +3,7 @@
 ///
 // coverage:ignore-file
 // ignore_for_file: type=lint, unused_import
+// dart format off
 
 import 'package:flutter/widgets.dart';
 import 'package:intl/intl.dart';
@@ -10,29 +11,32 @@ import 'package:slang/generated.dart';
 import 'strings.g.dart';
 
 // Path: <root>
-class EmojiMartTranslationsKo extends EmojiMartTranslations {
+class EmojiMartTranslationsKo extends EmojiMartTranslations with BaseTranslations<EmojiMartLocale, EmojiMartTranslations> {
 	/// You can call this constructor and build your own translation instance of this locale.
 	/// Constructing via the enum [EmojiMartLocale.build] is preferred.
-	EmojiMartTranslationsKo({Map<String, Node>? overrides, PluralResolver? cardinalResolver, PluralResolver? ordinalResolver})
+	EmojiMartTranslationsKo({Map<String, Node>? overrides, PluralResolver? cardinalResolver, PluralResolver? ordinalResolver, TranslationMetadata<EmojiMartLocale, EmojiMartTranslations>? meta})
 		: assert(overrides == null, 'Set "translation_overrides: true" in order to enable this feature.'),
-		  $meta = TranslationMetadata(
+		  _meta = meta ?? TranslationMetadata(
 		    locale: EmojiMartLocale.ko,
 		    overrides: overrides ?? {},
 		    cardinalResolver: cardinalResolver,
 		    ordinalResolver: ordinalResolver,
 		  ),
 		  super(cardinalResolver: cardinalResolver, ordinalResolver: ordinalResolver) {
-		super.$meta.setFlatMapFunction($meta.getTranslation); // copy base translations to super.$meta
-		$meta.setFlatMapFunction(_flatMapFunction);
+		_meta.setFlatMapFunction(_flatMapFunction);
 	}
 
 	/// Metadata for the translations of <ko>.
-	@override final TranslationMetadata<EmojiMartLocale, EmojiMartTranslations> $meta;
+	final TranslationMetadata<EmojiMartLocale, EmojiMartTranslations> _meta;
+	@override TranslationMetadata<EmojiMartLocale, EmojiMartTranslations> get $meta => _meta;
 
 	/// Access flat map
-	@override dynamic operator[](String key) => $meta.getTranslation(key) ?? super.$meta.getTranslation(key);
+	@override dynamic operator[](String key) => _meta.getTranslation(key) ?? super[key];
 
 	late final EmojiMartTranslationsKo _root = this; // ignore: unused_field
+
+	@override 
+	EmojiMartTranslationsKo $copyWith({TranslationMetadata<EmojiMartLocale, EmojiMartTranslations>? meta}) => EmojiMartTranslationsKo(meta: meta ?? this.$meta);
 
 	// Translations
 	@override String get search => '검색';
@@ -40,13 +44,13 @@ class EmojiMartTranslationsKo extends EmojiMartTranslations {
 	@override String get search_no_results_2 => '해당 이모지를 찾을 수 없습니다';
 	@override String get pick => '이모지 선택하기…';
 	@override String get add_custom => '커스텀 이모지 추가';
-	@override late final _EmojiMartTranslationsCategoriesKo categories = _EmojiMartTranslationsCategoriesKo._(_root);
+	@override late final _EmojiMartTranslations$categories$ko categories = _EmojiMartTranslations$categories$ko._(_root);
 	@override String get skin_tone => '피부 톤';
 }
 
 // Path: categories
-class _EmojiMartTranslationsCategoriesKo extends EmojiMartTranslationsCategoriesEn {
-	_EmojiMartTranslationsCategoriesKo._(EmojiMartTranslationsKo root) : this._root = root, super.internal(root);
+class _EmojiMartTranslations$categories$ko extends EmojiMartTranslations$categories$en {
+	_EmojiMartTranslations$categories$ko._(EmojiMartTranslationsKo root) : this._root = root, super.internal(root);
 
 	final EmojiMartTranslationsKo _root; // ignore: unused_field
 
@@ -64,30 +68,32 @@ class _EmojiMartTranslationsCategoriesKo extends EmojiMartTranslationsCategories
 	@override String get symbols => '기호';
 }
 
-/// Flat map(s) containing all translations.
+/// The flat map containing all translations for locale <ko>.
 /// Only for edge cases! For simple maps, use the map function of this library.
+///
+/// The Dart AOT compiler has issues with very large switch statements,
+/// so the map is split into smaller functions (512 entries each).
 extension on EmojiMartTranslationsKo {
 	dynamic _flatMapFunction(String path) {
-		switch (path) {
-			case 'search': return '검색';
-			case 'search_no_results_1': return '오, 아니야!';
-			case 'search_no_results_2': return '해당 이모지를 찾을 수 없습니다';
-			case 'pick': return '이모지 선택하기…';
-			case 'add_custom': return '커스텀 이모지 추가';
-			case 'categories.activity': return '활동';
-			case 'categories.custom': return '커스텀';
-			case 'categories.flags': return '국기';
-			case 'categories.foods': return '음식 & 음료';
-			case 'categories.frequent': return '자주 사용함';
-			case 'categories.nature': return '동물 & 자연';
-			case 'categories.objects': return '사물';
-			case 'categories.people': return '스마일리 & 사람들';
-			case 'categories.places': return '여행 & 장소';
-			case 'categories.search': return '검색 결과';
-			case 'categories.symbols': return '기호';
-			case 'skin_tone': return '피부 톤';
-			default: return null;
-		}
+		return switch (path) {
+			'search' => '검색',
+			'search_no_results_1' => '오, 아니야!',
+			'search_no_results_2' => '해당 이모지를 찾을 수 없습니다',
+			'pick' => '이모지 선택하기…',
+			'add_custom' => '커스텀 이모지 추가',
+			'categories.activity' => '활동',
+			'categories.custom' => '커스텀',
+			'categories.flags' => '국기',
+			'categories.foods' => '음식 & 음료',
+			'categories.frequent' => '자주 사용함',
+			'categories.nature' => '동물 & 자연',
+			'categories.objects' => '사물',
+			'categories.people' => '스마일리 & 사람들',
+			'categories.places' => '여행 & 장소',
+			'categories.search' => '검색 결과',
+			'categories.symbols' => '기호',
+			'skin_tone' => '피부 톤',
+			_ => null,
+		};
 	}
 }
-

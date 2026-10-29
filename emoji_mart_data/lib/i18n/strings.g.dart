@@ -6,10 +6,11 @@
 /// Locales: 11
 /// Strings: 187 (17 per locale)
 ///
-/// Built on 2025-01-24 at 18:15 UTC
+/// Built on 2026-10-29 at 21:16 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint, unused_import
+// dart format off
 
 import 'package:flutter/widgets.dart';
 import 'package:intl/intl.dart';
@@ -50,8 +51,8 @@ enum EmojiMartLocale with BaseAppLocale<EmojiMartLocale, EmojiMartTranslations> 
 
 	const EmojiMartLocale({
 		required this.languageCode,
-		this.scriptCode, // ignore: unused_element
-		this.countryCode, // ignore: unused_element
+		this.scriptCode, // ignore: unused_element, unused_element_parameter
+		this.countryCode, // ignore: unused_element, unused_element_parameter
 	});
 
 	@override final String languageCode;

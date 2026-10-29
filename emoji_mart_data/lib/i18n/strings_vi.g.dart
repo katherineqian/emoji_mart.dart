@@ -3,6 +3,7 @@
 ///
 // coverage:ignore-file
 // ignore_for_file: type=lint, unused_import
+// dart format off
 
 import 'package:flutter/widgets.dart';
 import 'package:intl/intl.dart';
@@ -10,29 +11,32 @@ import 'package:slang/generated.dart';
 import 'strings.g.dart';
 
 // Path: <root>
-class EmojiMartTranslationsVi extends EmojiMartTranslations {
+class EmojiMartTranslationsVi extends EmojiMartTranslations with BaseTranslations<EmojiMartLocale, EmojiMartTranslations> {
 	/// You can call this constructor and build your own translation instance of this locale.
 	/// Constructing via the enum [EmojiMartLocale.build] is preferred.
-	EmojiMartTranslationsVi({Map<String, Node>? overrides, PluralResolver? cardinalResolver, PluralResolver? ordinalResolver})
+	EmojiMartTranslationsVi({Map<String, Node>? overrides, PluralResolver? cardinalResolver, PluralResolver? ordinalResolver, TranslationMetadata<EmojiMartLocale, EmojiMartTranslations>? meta})
 		: assert(overrides == null, 'Set "translation_overrides: true" in order to enable this feature.'),
-		  $meta = TranslationMetadata(
+		  _meta = meta ?? TranslationMetadata(
 		    locale: EmojiMartLocale.vi,
 		    overrides: overrides ?? {},
 		    cardinalResolver: cardinalResolver,
 		    ordinalResolver: ordinalResolver,
 		  ),
 		  super(cardinalResolver: cardinalResolver, ordinalResolver: ordinalResolver) {
-		super.$meta.setFlatMapFunction($meta.getTranslation); // copy base translations to super.$meta
-		$meta.setFlatMapFunction(_flatMapFunction);
+		_meta.setFlatMapFunction(_flatMapFunction);
 	}
 
 	/// Metadata for the translations of <vi>.
-	@override final TranslationMetadata<EmojiMartLocale, EmojiMartTranslations> $meta;
+	final TranslationMetadata<EmojiMartLocale, EmojiMartTranslations> _meta;
+	@override TranslationMetadata<EmojiMartLocale, EmojiMartTranslations> get $meta => _meta;
 
 	/// Access flat map
-	@override dynamic operator[](String key) => $meta.getTranslation(key) ?? super.$meta.getTranslation(key);
+	@override dynamic operator[](String key) => _meta.getTranslation(key) ?? super[key];
 
 	late final EmojiMartTranslationsVi _root = this; // ignore: unused_field
+
+	@override 
+	EmojiMartTranslationsVi $copyWith({TranslationMetadata<EmojiMartLocale, EmojiMartTranslations>? meta}) => EmojiMartTranslationsVi(meta: meta ?? this.$meta);
 
 	// Translations
 	@override String get search => 'Tìm kiếm';
@@ -40,13 +44,13 @@ class EmojiMartTranslationsVi extends EmojiMartTranslations {
 	@override String get search_no_results_2 => 'Biểu tượng cảm xúc đó không thể tìm thấy';
 	@override String get pick => 'Chọn một biểu tượng cảm xúc…';
 	@override String get add_custom => 'Thêm biểu tượng cảm xúc tùy chỉnh';
-	@override late final _EmojiMartTranslationsCategoriesVi categories = _EmojiMartTranslationsCategoriesVi._(_root);
+	@override late final _EmojiMartTranslations$categories$vi categories = _EmojiMartTranslations$categories$vi._(_root);
 	@override String get skin_tone => 'Tông màu da';
 }
 
 // Path: categories
-class _EmojiMartTranslationsCategoriesVi extends EmojiMartTranslationsCategoriesEn {
-	_EmojiMartTranslationsCategoriesVi._(EmojiMartTranslationsVi root) : this._root = root, super.internal(root);
+class _EmojiMartTranslations$categories$vi extends EmojiMartTranslations$categories$en {
+	_EmojiMartTranslations$categories$vi._(EmojiMartTranslationsVi root) : this._root = root, super.internal(root);
 
 	final EmojiMartTranslationsVi _root; // ignore: unused_field
 
@@ -64,30 +68,32 @@ class _EmojiMartTranslationsCategoriesVi extends EmojiMartTranslationsCategories
 	@override String get symbols => 'Biểu tượng';
 }
 
-/// Flat map(s) containing all translations.
+/// The flat map containing all translations for locale <vi>.
 /// Only for edge cases! For simple maps, use the map function of this library.
+///
+/// The Dart AOT compiler has issues with very large switch statements,
+/// so the map is split into smaller functions (512 entries each).
 extension on EmojiMartTranslationsVi {
 	dynamic _flatMapFunction(String path) {
-		switch (path) {
-			case 'search': return 'Tìm kiếm';
-			case 'search_no_results_1': return 'Ôi không!';
-			case 'search_no_results_2': return 'Biểu tượng cảm xúc đó không thể tìm thấy';
-			case 'pick': return 'Chọn một biểu tượng cảm xúc…';
-			case 'add_custom': return 'Thêm biểu tượng cảm xúc tùy chỉnh';
-			case 'categories.activity': return 'Hoạt động';
-			case 'categories.custom': return 'Tùy chỉnh';
-			case 'categories.flags': return 'Cờ';
-			case 'categories.foods': return 'Thực phẩm & Đồ uống';
-			case 'categories.frequent': return 'Sử dụng thường xuyên';
-			case 'categories.nature': return 'Động vật & Thiên nhiên';
-			case 'categories.objects': return 'Đối tượng';
-			case 'categories.people': return 'Biểu tượng cảm xúc & Con người';
-			case 'categories.places': return 'Du lịch & Địa điểm';
-			case 'categories.search': return 'Kết quả tìm kiếm';
-			case 'categories.symbols': return 'Biểu tượng';
-			case 'skin_tone': return 'Tông màu da';
-			default: return null;
-		}
+		return switch (path) {
+			'search' => 'Tìm kiếm',
+			'search_no_results_1' => 'Ôi không!',
+			'search_no_results_2' => 'Biểu tượng cảm xúc đó không thể tìm thấy',
+			'pick' => 'Chọn một biểu tượng cảm xúc…',
+			'add_custom' => 'Thêm biểu tượng cảm xúc tùy chỉnh',
+			'categories.activity' => 'Hoạt động',
+			'categories.custom' => 'Tùy chỉnh',
+			'categories.flags' => 'Cờ',
+			'categories.foods' => 'Thực phẩm & Đồ uống',
+			'categories.frequent' => 'Sử dụng thường xuyên',
+			'categories.nature' => 'Động vật & Thiên nhiên',
+			'categories.objects' => 'Đối tượng',
+			'categories.people' => 'Biểu tượng cảm xúc & Con người',
+			'categories.places' => 'Du lịch & Địa điểm',
+			'categories.search' => 'Kết quả tìm kiếm',
+			'categories.symbols' => 'Biểu tượng',
+			'skin_tone' => 'Tông màu da',
+			_ => null,
+		};
 	}
 }
-
